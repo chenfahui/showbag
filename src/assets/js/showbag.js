@@ -16,7 +16,7 @@ var inTaking = false;
 var rem = 100;
 var ratio = window.devicePixelRatio ? window.devicePixelRatio : 1;
 var cdnUrl = $('input[name="requestUrl"]').val();
-var imgUrl = '../img/activity_showbag_h5_';/*跨域，相对路径*/
+var imgUrl = '../static/img/activity_showbag_h5_';/*跨域，相对路径*/
 
 /*预加载图片分组*/
 var imgList = {0:[

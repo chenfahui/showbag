@@ -1,0 +1,113 @@
+<template>
+    <div class="showbag-container">
+        <input type="hidden" name="requestUrl" value=".." />
+        <canvas id="drawing" class="drawing"></canvas>
+        <div class="hide"><div class="things" style="background-image:url(../img/activity_showbag_h5_bg.jpg);"></div></div>
+        <div class="choose choose-down hide">
+            <div class="choose-take" onclick="showbag.take();"></div>
+            <div class="choose-toggle" title="收起/展开"></div>
+            <div class="choose-cate">
+                <ul>
+                    <li class="current"><span class="icon icon-a">包</span></li>
+                    <li><span class="icon icon-b">必</span></li>
+                    <li><span class="icon icon-c">女</span></li>
+                    <li><span class="icon icon-d">食</span></li>
+                    <li><span class="icon icon-e">怪</span></li>
+                </ul>
+            </div>
+            <div class="choose-list transition" id="chooseListScroll">
+                <div class="choose-list-wrap">
+                    <ul>
+                        <li class="goods" data-width="2.3" data-height="3.575" data-img="bag_a.png"><i class="icon icon-bag-a">双肩包</i></li>
+                        <li class="goods" data-width="3.3" data-height="4" data-img="bag_b.png"><i class="icon icon-bag-b">斜跨长方形单肩包</i></li>
+                        <li class="goods" data-width="2.75" data-height="3.74" data-img="bag_c.png"><i class="icon icon-bag-c">侧背大单肩包</i></li>
+                        <li class="goods" data-width="3.85" data-height="2.7" data-img="bag_i.png"><i class="icon icon-bag-i">女式包包</i></li>
+                        <li class="goods" data-width="1.5" data-height="2" data-img="bag_d.png"><i class="icon icon-bag-d">包包的挂件</i></li>
+                        <li class="goods" data-width=".7" data-height="1.8" data-img="bag_e.png"><i class="icon icon-bag-e">包包的挂件</i></li>
+                        <li class="goods" data-width=".9" data-height="2" data-img="bag_f.png"><i class="icon icon-bag-f">包包的挂件</i></li>
+                        <li class="goods" data-width="1.2" data-height="1.9" data-img="bag_g.png"><i class="icon icon-bag-g">包包的挂件</i></li>
+                        <li class="goods" data-width="1" data-height="1.75" data-img="bag_h.png"><i class="icon icon-bag-h">包包的挂件</i></li>
+                    </ul>
+                    <ul class="hide">
+                        <li class="goods" data-width="1" data-height="1.7" data-img="must_a.png"><i class="icon icon-must-a">手机</i></li>
+                        <li class="goods" data-width="1" data-height="1.2" data-img="must_c.png"><i class="icon icon-must-c">入耳式耳机</i></li>
+                        <li class="goods" data-width="1.6" data-height="2" data-img="must_d.png"><i class="icon icon-must-d">头戴式耳机</i></li>
+                        <li class="goods" data-width=".8" data-height="1.25" data-img="must_e.png"><i class="icon icon-must-e">家钥匙</i></li>
+                        <li class="goods" data-width=".8" data-height="1.25" data-img="must_f.png"><i class="icon icon-must-f">宝马车钥匙</i></li>
+                        <li class="goods" data-width="2" data-height="1.35" data-img="must_g.png"><i class="icon icon-must-g">钱包</i></li>
+                        <li class="goods" data-width="1.7" data-height="1.75" data-img="must_h.png"><i class="icon icon-must-h">钱包</i></li>
+                        <li class="goods" data-width="1.2" data-height="1.5" data-img="must_i.png"><i class="icon icon-must-i">香烟+打火机</i></li>
+                        <li class="goods" data-width="1" data-height="2.5" data-img="must_j.png"><i class="icon icon-must-j">伞</i></li>
+                        <li class="goods" data-width="1.7" data-height=".8" data-img="must_k.png"><i class="icon icon-must-k">墨镜</i></li>
+                        <li class="goods" data-width="2.1" data-height="1.7" data-img="must_l.png"><i class="icon icon-must-l">笔记本子+笔</i></li>
+                        <li class="goods" data-width="1" data-height="1" data-img="must_m.png"><i class="icon icon-must-m">购物小票</i></li>
+                    </ul>
+                    <ul class="hide">
+                        <li class="goods" data-width=".9" data-height="1.75" data-img="girl_a.png"><i class="icon icon-girl-a">护手霜</i></li>
+                        <li class="goods" data-width=".7" data-height="1.25" data-img="girl_b.png"><i class="icon icon-girl-b">口红</i></li>
+                        <li class="goods" data-width="1.4" data-height="1.5" data-img="girl_c.png"><i class="icon icon-girl-c">气垫粉底</i></li>
+                        <li class="goods" data-width="1" data-height="1.25" data-img="girl_d.png"><i class="icon icon-girl-d">纸巾</i></li>
+                        <li class="goods" data-width="1.3" data-height="1.5" data-img="girl_e.png"><i class="icon icon-girl-e">姨妈巾</i></li>
+                        <li class="goods" data-width="1.25" data-height="1.25" data-img="girl_f.png"><i class="icon icon-girl-f">杜蕾斯避孕套</i></li>
+                    </ul>
+                    <ul class="hide">
+                        <li class="goods" data-width="1.5" data-height="2.1" data-img="food_a.png"><i class="icon icon-food-a">单身狗粮</i></li>
+                        <li class="goods" data-width="1.65" data-height="1.25" data-img="food_b.png"><i class="icon icon-food-b">烂掉的香蕉</i></li>
+                        <li class="goods" data-width="1.1" data-height="2.5" data-img="food_c.png"><i class="icon icon-food-c">枸杞牌保温杯</i></li>
+                        <li class="goods" data-width="1.75" data-height="1.75" data-img="food_d.png"><i class="icon icon-food-d">洒出来的豆浆和挤破的茶叶蛋</i></li>
+                        <li class="goods" data-width="2.1" data-height="1.5" data-img="food_e.png"><i class="icon icon-food-e">爱心便当盒</i></li>
+                    </ul>
+                    <ul class="hide">
+                        <li class="goods" data-width=".75" data-height="1.25" data-img="spoof_a.png"><i class="icon icon-spoof-a">风油精</i></li>
+                        <li class="goods" data-width="1" data-height="1.75" data-img="spoof_b.png"><i class="icon icon-spoof-b">生发液</i></li>
+                        <li class="goods" data-width="1" data-height="1.5" data-img="spoof_c.png"><i class="icon icon-spoof-c">脑残片</i></li>
+                        <li class="goods" data-width=".75" data-height="1" data-img="spoof_d.png"><i class="icon icon-spoof-d">速效救心丸</i></li>
+                        <li class="goods" data-width="1" data-height="1.6" data-img="spoof_e.png"><i class="icon icon-spoof-e">防狼喷雾</i></li>
+                        <li class="goods" data-width="1.25" data-height="2.5" data-img="spoof_f.png"><i class="icon icon-spoof-f">双节棍</i></li>
+                        <li class="goods" data-width="1.3" data-height="1.35" data-img="spoof_g.png"><i class="icon icon-spoof-g">108颗一串的佛珠</i></li>
+                        <li class="goods" data-width="1.75" data-height="1.3" data-img="spoof_h.png"><i class="icon icon-spoof-h">枪</i></li>
+                        <li class="goods" data-width="1" data-height="1.9" data-img="spoof_i.png"><i class="icon icon-spoof-i">刀</i></li>
+                        <li class="goods" data-width="1" data-height="1.6" data-img="spoof_n.png"><i class="icon icon-spoof-n">小猪佩奇</i></li>
+                        <li class="goods" data-width="1.65" data-height="2.3" data-img="spoof_j.png"><i class="icon icon-spoof-j">医院诊断书-脱发</i></li>
+                        <li class="goods" data-width="1.65" data-height="2.3" data-img="spoof_k.png"><i class="icon icon-spoof-k">医院诊断书-无药可救</i></li>
+                        <li class="goods" data-width="1.65" data-height="2.3" data-img="spoof_l.png"><i class="icon icon-spoof-l">医院诊断书-吸猫成瘾</i></li>
+                        <li class="goods" data-width="1.65" data-height="2.3" data-img="spoof_m.png"><i class="icon icon-spoof-m">医院诊断书-油腻少年</i></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="result hide"><img class="image" /><div class="bot"><div class="btn"><a href="javascript:;" onclick="showbag.take.back();">返回修改</a><a href="javascript:;">领取红包</a></div><div class="tips">长按上图即可保存图片分享</div></div></div>
+
+        <div class="welcome">
+            <div class="bg"></div>
+            <div class="percent"></div>
+            <div class="btn"><a href="javascript:;">点击晒你包里有啥</a></div>
+        </div>
+
+        <div id="linkQrcode" class="hide"></div>
+
+    </div>
+</template>
+
+<script>
+import '../assets/css/showbag.css'
+// import './assets/js/showbag.js'
+
+export default{
+  name: 'showbag',
+  data () {
+    return {
+    }
+  },
+  mounted:function(){
+    console.log($('.things').length);
+  },
+  methods: {
+  }
+}
+
+</script>
+
+<style scoped>
+
+</style>
