@@ -16,7 +16,7 @@ var inTaking = false;
 var rem = 100;
 var ratio = window.devicePixelRatio ? window.devicePixelRatio : 1;
 var cdnUrl = $('input[name="requestUrl"]').val();
-var imgUrl = '../static/img/activity_showbag_h5_';/*跨域，相对路径*/
+var imgUrl = '../img/activity_showbag_h5_';/*跨域，相对路径*/
 
 /*预加载图片分组*/
 var imgList = {0:[
@@ -271,7 +271,7 @@ showbag.take = function(){
 
     var thingImageDraw = function(obj){
         var img = new Image(), width = showbag.take.pixel($(obj).css('width')), height = showbag.take.pixel($(obj).css('height')), left = showbag.take.pixel($(obj).css('left')), top = showbag.take.pixel($(obj).css('top'));
-        img.crossOrigin = 'Anonymous';
+        // img.crossOrigin = 'Anonymous';
         img.onload = function(){
             ctx.drawImage(img, left, top, width, height);
             if(countDraw >= thingLen - 1){/*当画完最后一个物品*/
